@@ -6,7 +6,7 @@ import React from "react";
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, border, backgroundColor, size, label, ...props }) => {
+export const Button = ({ primary, border, shadow, backgroundColor, size, label, ...props }) => {
 
   const mode = primary
     ? "storybook-button--primary"
@@ -16,13 +16,17 @@ export const Button = ({ primary, border, backgroundColor, size, label, ...props
     ? "storybook-button--border"
     : "" 
 
+  const setShadow = shadow === "on"
+    ? "storybook-button--shadow"
+    : ""
+
   return (
     <button
       type="button"
       // storybook-button passes basic button styles
       // storybook-button--size passes sizign
       // mode passes primary or secondary styles
-      className={["storybook-button", `storybook-button--${size}`, mode, setBorder].join(
+      className={["storybook-button", `storybook-button--${size}`, mode, setBorder, setShadow].join(
         " ",
       )}
       style={backgroundColor && { backgroundColor }}
@@ -55,8 +59,11 @@ Button.propTypes = {
    */
   onClick: PropTypes.func,
   
-  // boolean border
+  // "boolean" border
   border: PropTypes.oneOf(["on", "off"]),
+
+  // "boolean" style shadow
+  shadow: PropTypes.oneOf(["on", "off"]),
 };
 
 Button.defaultProps = {
@@ -64,5 +71,6 @@ Button.defaultProps = {
   primary: false,
   size: "medium",
   onClick: undefined,
-  border: false,
+  border: "off",
+  shadow: "off",
 };

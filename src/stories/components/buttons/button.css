@@ -6,7 +6,6 @@
   cursor: pointer;
   display: inline-block;
   line-height: 1;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: all 0.15s ease-in-out;
 }
 
@@ -42,4 +41,8 @@
 
 .storybook-button--border {
   border: 2px solid #282828;
+}
+
+.storybook-button--shadow {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
